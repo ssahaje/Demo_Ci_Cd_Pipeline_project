@@ -5,6 +5,13 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+'''Vaccination Till date Begins here'''
+url = "http://api.covid19india.org/csv/latest/vaccine_doses_statewise.csv"
+df = pd.read_csv(url)
+Vaccination_Till_Date = df.iat[37, 98]
+print(Vaccination_Till_Date)
+'''Vaccination till date Ends here'''
+
 response = requests.get('https://api.covid19india.org/state_district_wise.json')
 data = response.json()
 # print(data)
@@ -69,7 +76,7 @@ df = pd.DataFrame({'District': District_List,
 # Print the dataframe
 print(df)
 total = ['{:,}'.format(T_Confirmed), '{:,}'.format(T_Active),
-         '{:,}'.format(T_Recovered), '{:,}'.format(T_Deceased), Overall_Recovery_Rate]
+         '{:,}'.format(T_Recovered), '{:,}'.format(T_Deceased), Overall_Recovery_Rate, '{:,}'.format(Vaccination_Till_Date)]
 
 df.to_excel('district_data.xlsx', index = False)
 
