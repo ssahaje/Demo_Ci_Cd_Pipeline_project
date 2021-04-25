@@ -29,11 +29,11 @@ for states in data:
         Active = dist_data[1][1]
         print('Active Cases: ' + str(dist_data[1][1]))
         Active_List.append(Active)
-        Recovered = dist_data[4][1]
-        print('Recovered Cases: ' + str(dist_data[4][1]))
+        Recovered = dist_data[5][1]
+        print('Recovered Cases: ' + str(dist_data[5][1]))
         Recovered_List.append(Recovered)
-        Deceased = dist_data[3][1]
-        print('Deceased Cases: ' + str(dist_data[3][1]))
+        Deceased = dist_data[4][1]
+        print('Deceased Cases: ' + str(dist_data[4][1]))
         Deceased_List.append(Deceased)
         if Confirmed == 0:
             print('Recovery rate: 0')
